@@ -20,8 +20,8 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('phone');
             $table->string('password');
-            $table->string('is_admin');
-            $table->string('status');
+            $table->string('is_admin')->default('0');
+            $table->string('status')-> default('1');
             $table->timestamps();
         });
     }
