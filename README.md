@@ -1,66 +1,92 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Kaya-Africa-test
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+# Impotant Note
 
-## About Laravel
+I have created the server base on the decription and little was done on the challenge 1 too
+I assume all the registered users is an admin
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+# Hosting 
+I have use heroku to host the API
+I use PHP Laravel  as the language 
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+I have Use mysql in the localhost But on heroku I use pgsql which I have found free.
 
-## Learning Laravel
+# IMPORTANT ROUTES
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+User sign up routes:
+POST : https://limitless-cliffs-15542.herokuapp.com/api/v1/signup
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+user sign in routes
+POST: https://limitless-cliffs-15542.herokuapp.com/api/v1/signin
+use the access token to access the routes
 
-## Laravel Sponsors
+# for the scope of the test you, as a registered user, you can make someone an admin by running this end-point
+POST: https://limitless-cliffs-15542.herokuapp.com/api/v1/make_user_admin/1
+this is just for the scope of this test, there are ways to get that done easily
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
 
-### Premium Partners
+Vendor can create shop using this routes:
+POST: https://limitless-cliffs-15542.herokuapp.com/api/v1/create-shop
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
 
-## Contributing
+Super Admin can deactivate Vendor using this routes:
+POST: https://limitless-cliffs-15542.herokuapp.com/api/v1/deactivate/1
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
 
-## Code of Conduct
+Super Admin can activate Vendor using this routes:
+POST: https://limitless-cliffs-15542.herokuapp.com/api/v1/activate/1
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
 
-## Security Vulnerabilities
+Super admin can view each users by their id using this end-point 
+GET: https://limitless-cliffs-15542.herokuapp.com/api/get_user/1
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
-## License
+Super Admin can get alll the shop using this end point:
+GET : https://limitless-cliffs-15542.herokuapp.com/api/v1/get_shop_by_admin
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+You can get All shops as Super Admin using this end point:
+GET: https://limitless-cliffs-15542.herokuapp.com/api/v1/get_shops
+
+
+And this routes can view shops by id :
+GET: https://limitless-cliffs-15542.herokuapp.com/api/v1/get_shop/2
+
+
+
+Admin can get All users:
+GET: https://limitless-cliffs-15542.herokuapp.com/api/v1/all_users
+
+
+
+
+Notes, I have use A table for the Users which i called the vendor and i have a field that tell if a user is An admin or not.
+Then Deactivate means that the user status is 0 while 1 for Activate user. 
+
+
+
+
+# Challenge One 
+
+I use React Js and css for the interface, I just did a brief work of which I am unable to complete due to lesser time and other lttle commitment 
+I need to meet up. 
+
+However, I am Unable to to host it because of other timeline I need  meet,
+
+But it can be  run  locally after clone it  by running the following command 
+
+# 1 
+npm install >>>> this is to install all th necessary package
+# 2
+npm start >>>>  to access the web app locally on the available port.
+
+
+
+I will try to host if time permit Thanks.
+
+Accept my little effort on the test, I can do better once I have the podium. Thanks . 
+
+
+I have been commmit directly to heroku, So you might you might not see whole commit statement
