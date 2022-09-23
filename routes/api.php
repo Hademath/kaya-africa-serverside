@@ -19,6 +19,7 @@ Route::group([
 ], function () {
     Route::post('/signup', 'UsersController@register');
     Route::post('/signin', 'UsersController@login');
+    Route::post('/make_user_admin/{id}', 'UsersController@make_user_admin');
 });
 
 // Vendor activities
