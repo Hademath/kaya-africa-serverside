@@ -160,7 +160,64 @@ class VendorsController extends Controller
         }
         
     }
+     //  admin can activate users 
+    public function activate_vendor($id){
+        $user = User::find($id);
+        if(!$user) {
+            $this->result->status_code = 404;
+            $this->result->message = 'User not found';
+            return response()->json($this->result);
+        }else{
+            
+                $valid_admin = Auth::user();
+                $is_admin = $valid_admin->is_admin==1;
+                if(!$is_admin){
+                     $this->result->status_code = 401;
+                    $this->result->message = 'You are not authorized to perform this action';
+                    return response()->json($this->result);
+                }else{
+                    $active_user = User::where('id', $id)->where('status', '0')->first();
+                    if($active_user ){
+                        $user_update = User::where('id', $id)->update(['status' => '1', 'updated_at' => Carbon::now()->toDateTimeString()]);
+                        $this->result->status = true;
+                        $this->result->message = "User activated";
+                        $this->result->data = $user;
+                        }else{
+                    $this->result->status = false;
+                    $this->result->message = "User already activated";
+                }
+             }
+            }
+             return response()->json($this->result);
 
+        }
+ 
+
+        //  Make users an admin by update the is_admin to 1 
+    public function make_admin( $id){
+        $user = User::find($id);
+        if(!$user) {
+            $this->result->status_code = 404;
+            $this->result->message = 'User not found';
+            return response()->json($this->result);
+        }else{
+                  $make_user = User::where('id', $id)->where('is_admin', '0')->first();
+                  if($make_user ){
+                    $user_update = User::where('id', $id)->update(['is_admin' => '1']);
+                    $this->result->status = true;
+                    $this->result->message = "User is now an admin";
+                    $this->result->data = $user;
+                    }else{
+                $this->result->status = false;
+                $this->result->message = "User is already an admin";
+                }
+            }
+             return response()->json($this->result);
+
+        }
+ 
+
+        //  Make users an admin by update the is_admin to 1
 
 
 }

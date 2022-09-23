@@ -19,7 +19,6 @@ Route::group([
 ], function () {
     Route::post('/signup', 'UsersController@register');
     Route::post('/signin', 'UsersController@login');
-    Route::post('/make_user_admin/{id}', 'UsersController@make_user_admin');
 });
 
 // Vendor activities
@@ -30,9 +29,11 @@ Route::group([
 ], function () {
     Route::post('/create-shop', 'VendorsController@create_shop');
     Route::post('/deactivate/{id}', 'VendorsController@deactivate_vendor');
+    Route::post('/activate/{id}', 'VendorsController@activate_vendor');
     Route::get('/get_shops', 'VendorsController@get_shops');
     Route::get('/get_shop/{id}', 'VendorsController@view_shop');
     Route::get('/get_shop_by_admin', 'VendorsController@get_all_shops');
+    Route::post('/make_user_admin/{id}', 'VendorsController@make_admin');
 });
 
 

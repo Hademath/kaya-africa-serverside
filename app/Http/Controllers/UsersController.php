@@ -115,23 +115,6 @@ class UsersController extends Controller
         return response()->json($this->result);
     }
 
-      //make user an admin
-    public function make_user_admin($id){
-        $user = User::find($id);
-        if (!$user) {
-            $this->result->status_code = 404;
-            $this->result->message = 'User not found';
-            return response()->json($this->result);
-        }
-       $user_update = User::where('id', $id)->update(['is_admin' => 1, 'updated_at' => Carbon::now()->toDateTimeString()]);
-        if($user_update){
-            $this->result->status = true;
-            $this->result->message = "Successful";
-            $this->result->data = $user;
-        }
-        return response()->json($this->result); 
-    }
-
 
  protected function createNewToken($token){
         return response()->json([
